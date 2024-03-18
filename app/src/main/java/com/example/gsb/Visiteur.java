@@ -10,6 +10,8 @@ public class Visiteur {
     private String email;
     private String password;
     private Date date_embauche;
+    private String token;
+    private String visiteurId;
 
     public Visiteur(String nom, String prenom, String numero, String email, String password, Date date_embauche) {
         this.nom = nom;
@@ -22,6 +24,22 @@ public class Visiteur {
 
     public String getNom() {
         return nom;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getVisiteurId() {
+        return visiteurId;
+    }
+
+    public void setVisiteurId(String visiteurId) {
+        this.visiteurId = visiteurId;
     }
 
     public void setNom(String nom) {
@@ -66,5 +84,11 @@ public class Visiteur {
 
     public void setDate_embauche(Date date_embauche) {
         this.date_embauche = date_embauche;
+    }
+
+
+    public Visiteur(String email, String password) {
+        this.email = email;
+        this.password = password;
     }
 }
