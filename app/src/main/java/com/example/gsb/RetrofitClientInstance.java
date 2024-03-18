@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClientInstance {
     private static Retrofit retrofit;
-    private static final String BASE_URL = "https://improved-yodel-j66wpjpqxj7fj66x-3000.app.github.dev/";
+    private static final String BASE_URL = "https://potential-space-parakeet-pvvq5j5pv47cxgq-3000.app.github.dev/";
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {
             retrofit = new retrofit2.Retrofit.Builder()
