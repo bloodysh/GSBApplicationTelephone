@@ -46,12 +46,17 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "Logged in", Toast.LENGTH_SHORT).show();
 
                             // Retrieve the "nom" from the response
-                            String nom = response.body().getNom();
+                            String token = response.body().getToken();
+                            String idVisiteur =  response.body().getVisiteurId();
 
                             // Pass "nom" to LoggedInActivity
                             Intent intent = new Intent(MainActivity.this, LoggedInActivity.class);
-                            intent.putExtra("nom", nom);
+                            intent.putExtra("token", token);
+                            intent.putExtra("idVisiteur", idVisiteur);
                             startActivity(intent);
+
+
+
                         } else {
                             Toast.makeText(MainActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
                         }
