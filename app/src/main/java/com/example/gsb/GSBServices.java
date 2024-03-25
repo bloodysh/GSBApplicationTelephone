@@ -1,5 +1,8 @@
 package com.example.gsb;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -18,4 +21,10 @@ public interface GSBServices {
 
     @GET("api/visiteur/{id}")
     Call<Visiteur> getVisiteur(@Header("Authorization") String authorization, @Path("id") String id);
+
+    @GET("api/praticien")
+    Call<ArrayList<Praticien>> getPraticiens(@Header("Authorization") String authorization);
+
+    @GET("api/visite")
+    Call<ArrayList<Visite>> getVisites(@Header("Authorization") String authorization);
 }

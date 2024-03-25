@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(intent);
 
 
-
                         } else {
                             Toast.makeText(MainActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
                         }
