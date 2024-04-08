@@ -1,5 +1,6 @@
 package com.example.gsb;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
         this.praticiens = praticiens;
     }
 
+    public Praticien getPraticienAtPosition(int position) {
+        return praticiens.get(position);
+    }
+
     @NonNull
     @Override
     public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -29,6 +34,18 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
         Praticien praticien = praticiens.get(position);
         holder.nomPraticien.setText(praticien.getNom()); // Set the nom of the Praticien to the TextView
         holder.prenomPraticien.setText(praticien.getPrenom()); // Set the prenom of the Praticien to the TextView
+
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), InfoPraticienActivity.class);
+                intent.putExtra("praticien", praticien);
+                v.getContext().startActivity(intent);
+            }
+        };
+
+        holder.nomPraticien.setOnClickListener(listener);
+        holder.prenomPraticien.setOnClickListener(listener);
     }
 
     @Override

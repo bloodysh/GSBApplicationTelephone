@@ -28,6 +28,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoggedInActivity" />
+        <activity android:name=".InfoPraticienActivity" />
     </application>
 
 </manifest>

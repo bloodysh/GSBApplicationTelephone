@@ -1,9 +1,10 @@
 package com.example.gsb;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.util.Date;
 
-public class Visiteur {
+public class Visiteur implements Serializable {
     private String nom;
     private String prenom;
     private String numero;

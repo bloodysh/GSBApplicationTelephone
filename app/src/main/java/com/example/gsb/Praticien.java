@@ -10,8 +10,9 @@ public class Praticien implements Serializable {
     private String rue;
     private String code_postale;
     private String ville;
+    private String Id;
 
-    public Praticien(String nom, String prenom, String tel, String email, String rue, String code_postale, String ville) {
+    public Praticien(String nom, String prenom, String tel, String email, String rue, String code_postale, String ville, String Id){
         this.nom = nom;
         this.prenom = prenom;
         this.tel = tel;
@@ -19,6 +20,7 @@ public class Praticien implements Serializable {
         this.rue = rue;
         this.code_postale = code_postale;
         this.ville = ville;
+        this.Id = Id;
     }
 
     // Getters and setters for each field
@@ -76,5 +78,13 @@ public class Praticien implements Serializable {
 
     public void setVille(String ville) {
         this.ville = ville;
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
     }
 }

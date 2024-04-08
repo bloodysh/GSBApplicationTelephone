@@ -22,9 +22,12 @@ public interface GSBServices {
     @GET("api/visiteur/{id}")
     Call<Visiteur> getVisiteur(@Header("Authorization") String authorization, @Path("id") String id);
 
+    @GET("api/praticien/{id}")
+    Call<Praticien> getInfoPraticien(@Header("Authorization") String authorization, @Path("id") String id);
+
     @GET("api/praticien")
     Call<ArrayList<Praticien>> getPraticiens(@Header("Authorization") String authorization);
 
     @GET("api/visite")
-    Call<ArrayList<Visite>> getVisites(@Header("Authorization") String authorization);
+    Call<ArrayList<Visite>> getVisitesPraticien(@Header("Authorization") String authorization, @Path("id") String id);
 }
