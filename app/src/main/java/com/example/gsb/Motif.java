@@ -1,6 +1,8 @@
 package com.example.gsb;
 
-public class Motif {
+import java.io.Serializable;
+
+public class Motif implements Serializable {
     private String libelle;
 
 

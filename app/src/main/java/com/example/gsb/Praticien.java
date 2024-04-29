@@ -1,6 +1,8 @@
 package com.example.gsb;
 
 import java.io.Serializable;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class Praticien implements Serializable {
     private String nom;
@@ -10,9 +12,11 @@ public class Praticien implements Serializable {
     private String rue;
     private String code_postale;
     private String ville;
-    private String Id;
+    private String _id;
+    private ArrayList<Visite> visites;
 
-    public Praticien(String nom, String prenom, String tel, String email, String rue, String code_postale, String ville, String Id){
+
+    public Praticien(String nom, String prenom, String tel, String email, String rue, String code_postale, String ville, String _id){
         this.nom = nom;
         this.prenom = prenom;
         this.tel = tel;
@@ -20,7 +24,8 @@ public class Praticien implements Serializable {
         this.rue = rue;
         this.code_postale = code_postale;
         this.ville = ville;
-        this.Id = Id;
+        this._id = _id;
+
     }
 
     // Getters and setters for each field
@@ -80,11 +85,19 @@ public class Praticien implements Serializable {
         this.ville = ville;
     }
 
-    public String getId() {
-        return Id;
+    public String get_id() {
+        return _id;
     }
 
-    public void setId(String id) {
-        Id = id;
+    public void set_id(String _id) {
+        this._id = _id;
+    }
+
+    public ArrayList<Visite> getVisites() {
+        return visites;
+    }
+
+    public void setVisites(ArrayList<Visite> visites) {
+        this.visites = visites;
     }
 }

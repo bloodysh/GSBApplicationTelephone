@@ -40,7 +40,7 @@ public class RecyclerVisiteAdapter extends RecyclerView.Adapter<RecyclerVisiteAd
 
         public RecyclerViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewId = itemView.findViewById(R.id.visiteId);
+            textViewId = itemView.findViewById(R.id.recycler_visite);
         }
     }
 }

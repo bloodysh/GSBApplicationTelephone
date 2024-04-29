@@ -59,7 +59,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
 
         public RecyclerViewHolder(@NonNull View itemView) {
             super(itemView);
-            nomPraticien = itemView.findViewById(R.id.recycler_titre); // Get the TextView for nom
+            nomPraticien = itemView.findViewById(R.id.recycler_visite); // Get the TextView for nom
             prenomPraticien = itemView.findViewById(R.id.prenomPraticien); // Get the TextView for prenom
         }
     }

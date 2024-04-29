@@ -54,47 +54,31 @@ public class LoggedInActivity extends AppCompatActivity {
 
 
                     // Make the API call to getPraticiens
-                    Call<ArrayList<Praticien>> callPraticiens = service.getPraticiens("Bearer " + token);
-                    callPraticiens.enqueue(new Callback<ArrayList<Praticien>>() {
+                    // After you retrieve the Visiteur object
+                    ArrayList<Praticien> praticiens = visiteur.getPortefeuillePraticiens();
+
+                    // Set up the RecyclerView
+                    binding.praticiensRecyclerView.setHasFixedSize(true);
+                    LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+                    binding.praticiensRecyclerView.setLayoutManager(layoutManager);
+                    binding.praticiensRecyclerView.setFocusable(false);
+
+                    // Create and set the adapter
+                    RecyclerAdapter adapter =  new RecyclerAdapter(praticiens);
+                    binding.praticiensRecyclerView.setAdapter(adapter);
+
+                    // Set up the item click listener
+                    binding.praticiensRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), binding.praticiensRecyclerView, new RecyclerViewClickListener() {
                         @Override
-                        public void onResponse(Call<ArrayList<Praticien>> call, Response<ArrayList<Praticien>> response) {
-                            if (response.isSuccessful()) {
-                                ArrayList<Praticien> praticiens = response.body();
-                                binding.praticiensRecyclerView.setHasFixedSize(true);
-                                LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-                                binding.praticiensRecyclerView.setLayoutManager(layoutManager);
-                                binding.praticiensRecyclerView.setFocusable(false);
-
-                                RecyclerAdapter adapter =  new RecyclerAdapter(praticiens);
-                                binding.praticiensRecyclerView.setAdapter(adapter);
-
-
-
-                                binding.praticiensRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), binding.praticiensRecyclerView, new RecyclerViewClickListener() {
-                                    @Override
-                                    public void onClick(View view, int position) {
-                                        Praticien praticien = praticiens.get(position);
-                                        String idPraticien =  praticien.getId();
-                                        Intent intent = new Intent(getApplicationContext(), InfoPraticienActivity.class);
-                                        intent.putExtra("praticien", praticien);
-                                        intent.putExtra("visiteur", visiteur);
-                                        intent.putExtra("idVisiteur", idVisiteur);
-                                        intent.putExtra("idPraticien", idPraticien);
-                                        intent.putExtra("token", token);
-                                        startActivity(intent);
-                                    }
-                                }));
-
-                            } else {
-                                // Handle the error
-                            }
+                        public void onClick(View view, int position) {
+                            Praticien praticien = praticiens.get(position);
+                            Intent intent = new Intent(getApplicationContext(), InfoPraticienActivity.class);
+                            intent.putExtra("praticien", praticien);
+                            intent.putExtra("visiteur", visiteur);
+                            intent.putExtra("token", token);
+                            startActivity(intent);
                         }
-
-                        @Override
-                        public void onFailure(Call<ArrayList<Praticien>> call, Throwable t) {
-                            // Handle the failure
-                        }
-                    });
+                    }));
                 } else {
                     // Handle the error
                 }

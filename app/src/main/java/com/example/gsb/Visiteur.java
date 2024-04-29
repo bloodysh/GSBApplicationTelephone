@@ -2,6 +2,7 @@ package com.example.gsb;
 
 import java.io.Serializable;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Visiteur implements Serializable {
@@ -13,6 +14,7 @@ public class Visiteur implements Serializable {
     private Date date_embauche;
     private String token;
     private String visiteurId;
+    private ArrayList<Praticien> portefeuillePraticiens;
 
     public Visiteur(String nom, String prenom, String numero, String email, String password, Date date_embauche) {
         this.nom = nom;
@@ -91,5 +93,13 @@ public class Visiteur implements Serializable {
     public Visiteur(String email, String password) {
         this.email = email;
         this.password = password;
+    }
+
+    public ArrayList<Praticien> getPortefeuillePraticiens() {
+        return portefeuillePraticiens;
+    }
+
+    public void setPortefeuillePraticiens(ArrayList<Praticien> portefeuillePraticiens) {
+        this.portefeuillePraticiens = portefeuillePraticiens;
     }
 }
